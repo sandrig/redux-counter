@@ -1,6 +1,6 @@
-import { createStore } from "./createStore"
-import './styles.css'
+import { createStore } from 'redux'
 import { rootReducer } from './redux/rootReducer'
+import './styles.css'
 
 const counter = document.getElementById('counter')
 const addBtn = document.getElementById('add')
