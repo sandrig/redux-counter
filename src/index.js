@@ -13,7 +13,6 @@ const themeBtn = document.getElementById('theme')
 
 const store = createStore(
   rootReducer,
-  0,
   applyMiddleware(thunk, logger)
 )
 
@@ -32,7 +31,7 @@ asyncBtn.addEventListener('click', () => {
 store.subscribe(() => {
   const state = store.getState()
 
-  counter.textContent = state
+  counter.textContent = state.counter
 })
 
 store.dispatch({ type: 'INIT_APPLICATION' })
