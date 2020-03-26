@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore} from 'redux'
+import { applyMiddleware, createStore, compose } from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import { rootReducer } from './redux/rootReducer'
@@ -13,7 +13,10 @@ const themeBtn = document.getElementById('theme')
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunk, logger)
+  compose(
+    applyMiddleware(thunk, logger),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 )
 
 addBtn.addEventListener('click', () => {
